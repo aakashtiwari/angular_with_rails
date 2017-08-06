@@ -1,0 +1,26 @@
+<div class="label-container">
+  <div class='label' ng-click='showStarred(undefined)' ng-class="{active: starred == undefined}">
+    All Request
+  </div>
+  <div class='label' ng-click='showStarred(true)' ng-class="{active: starred == true}" >
+    Starred
+  </div>
+  <div class='label' ng-click='showStarred(false)' ng-class="{active: starred == false}" >
+    Unstarred
+  </div>
+</div>
+<div request-details></div>
+<div class="contact-detail request" ng-repeat='patient in patients | filter: {starred: starred}' ng-click= "openDetail(patient.id)">
+  <div class='profile clearfix'>
+    <img class='profile-image' src="http://dp.profilepics.in/profile-pictures-for-facebook-whatsapp/cute-profile-pics/cute-profile-pics-for-facebook-whatsapp-12.png">
+    <div class='profile-info'>
+      <name>{{patient.name}}</name>
+      <country>Boston, USA </country>
+      <span class="attr">email :</span>
+      <span class="value">{{patient.email}}</span></br>
+      <span class="attr">Procedure :</span>
+      <span class="value">Cardioversion</span>
+    </div>
+  </div>
+  <span ng-class="{starred: patient.starred, unstarred: !patient.starred}" ng-click="setFavourite(patient.id)"></span>
+</div>

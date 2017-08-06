@@ -1,0 +1,186 @@
+<div class="detail-container">
+  <h3 class='bar-head' ng-class="{active:accordion==1}" ng-click="accordion = 1" >Contact Details</h3>
+  <div class="contact-detail" ng-show="accordion==1">
+    <div class="left-right-container">
+      <div class='profile clearfix'>
+        <img class='profile-image' src="http://dp.profilepics.in/profile-pictures-for-facebook-whatsapp/cute-profile-pics/cute-profile-pics-for-facebook-whatsapp-12.png">
+        <div class='profile-info'>
+          <name>{{active_patient.name}}</name>
+          <country>Boston, USA </country>
+        </div>
+      </div>
+      <div class='quote-button' ng-click="accordion = 3" ng-show="active_patient.quote == undefined">
+        Prepare Quote
+      </div>
+      <span ng-class="{starred: active_patient.starred, unstarred: !active_patient.starred}" ng-click="setFavourite(active_patient.id)"></span>
+    </div>
+    <div class="left-right-container">
+      <div class="content-left">
+        <div class="info-bar">
+          <span class="attr">Age :</span>
+          <span class="value"> {{active_patient.age}} </span>
+
+          <span class="attr ml100">Sex :</span>
+          <span class="value"> {{active_patient.sex}} </span>
+        </div>
+        <div class="info-bar">
+          <span class="attr">Contact :</span>
+          <span class="value"> {{active_patient.mob_number}} </span>
+        </div>
+      </div>
+      <div class="content-right">
+        <div class="info-bar">
+          <span class="attr">Blood Type :</span>
+          <span class="value">{{ active_patient.blood_type }} </span>
+        </div>
+        <div class="info-bar">
+          <span class="attr">Email :</span>
+          <span class="value"> {{active_patient.email}} </span>
+        </div>
+      </div>
+    </div>
+    <div class="left-right-container">
+      <div class="content-left">
+        <div class="info-bar">
+          <span class="attr">Speciality :</span>
+          <span class="value">{{ active_patient.specialization.name }} </span>
+        </div>
+      </div>
+      <div class="content-right">
+        <div class="info-bar">
+          <span class="attr">Procedure :</span>
+          <span class="value"> {{active_patient.specialization.procedure }} </span>
+        </div>
+      </div>
+    </div>
+    <div class="left-right-container">
+      <div class="info-bar">
+        <span class="attr">Referred By :</span>
+        <span class="value"> {{active_patient.doctor.name }} </span>
+      </div>
+      <div class="content-left">
+        <div class="info-bar">
+          <span class="attr">Email :</span>
+          <span class="value"> {{active_patient.doctor.email }} </span>
+        </div>
+      </div>
+      <div class="content-right">
+        <div class="info-bar">
+          <span class="attr">Contact :</span>
+          <span class="value"> {{active_patient.doctor.mob_number }} </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class='bar-head-dark' ng-class="{active:accordion==2}" ng-click="accordion = 2" >Medical Condition</h3>
+  <div class="medical-detail" ng-show="accordion==2">
+    <div class="left-right-container">
+      <div class='profile clearfix'>
+        <img class='profile-image' src="http://dp.profilepics.in/profile-pictures-for-facebook-whatsapp/cute-profile-pics/cute-profile-pics-for-facebook-whatsapp-12.png">
+        <div class='profile-info'>
+          <name>{{active_patient.name}}</name>
+          <country>Boston, USA </country>
+        </div>
+      </div>
+      <div class='quote-button' ng-click="accordion = 3" ng-show="active_patient.quote == undefined">
+        Prepare Quote
+      </div>
+      <span ng-class="{starred: active_patient.starred, unstarred: !active_patient.starred}" ng-click="setFavourite(active_patient.id)"></span>
+    </div>
+    <div class="left-right-container">
+      <div class="content-left">
+        <div class="info-bar">
+          <span class="attr">Diagonised by :</span>
+          <span class="value"> {{active_patient.doctor.name }} </span>
+        </div>
+        <div class="info-bar">
+          <span class="attr">Contact :</span>
+          <span class="value"> {{active_patient.doctor.mob_number }} </span>
+        </div>
+         <div class="info-bar">
+          <span class="attr">Email :</span>
+          <span class="value"> {{active_patient.doctor.email }} </span>
+        </div>
+      </div>
+      <div class="content-right">
+        <div class="info-bar">
+          <span class="attr">Description:</span>
+          <span class="value"> {{active_patient.description }} </span>
+        </div>
+      </div>
+    </div>
+    <div class="left-right-container">
+      <div class="content-left">
+        <div class="info-bar">
+          <span class="attr">Prescription :</span></br>
+          <span class="value"> {{active_patient.prescription }} </span>
+        </div>
+      </div>
+      <div class="content-right">
+        <div class="info-bar">
+          <span class="attr">Report</span></br>
+          <span class="value"> Cardiologist </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class='bar-head' ng-class="{active:accordion==3}" ng-click="accordion = 3">Prepare Quote</h3>
+  <div class="prepare-quote" ng-show="accordion==3">
+    <div class="left-right-container">
+      <div class='profile clearfix'>
+        <img class='profile-image' src="http://dp.profilepics.in/profile-pictures-for-facebook-whatsapp/cute-profile-pics/cute-profile-pics-for-facebook-whatsapp-12.png">
+        <div class='profile-info'>
+          <name>{{active_patient.name}}</name>
+          <country>Boston, USA </country>
+        </div>
+      </div>
+      <span ng-class="{starred: active_patient.starred, unstarred: !active_patient.starred}" ng-click="setFavourite(active_patient.id)"></span>
+    </div>
+    <form ng-submit="submitQuote(active_patient.id)" ng-if="!active_patient.quote">
+      <div class="left-right-container" >
+        <div class="content-left">
+          <div class="info-bar">
+            <span class="attr">Procedure to be performed</span></br>
+            <input type="input" name="procedure" class="value" ng-model="form.procedure" required="true">
+          </div>
+        </div>
+        <div class="content-right">
+          <div class="info-bar">
+            <span class="attr"> Estimated Cost: </span></br>
+            <input type="input" name="estimated_cost" class="value" ng-model="form.cost" required="true">
+          </div>
+        </div>
+      </div>
+      <div class="left-right-container">
+        <div class="info-bar">
+          <span class="attr">Remarks :</span></br>
+          <textarea type="input" name="remark" class="value" ng-model="form.remark" required="true"></textarea>
+          <input type="submit" name="send-quote" value="Send Quote" class='quote-button send-quote'>
+        </div>
+      </div>
+    </form>
+    <div ng-if="active_patient.quote">
+      <div class="left-right-container">
+        <div class="content-left">
+          <div class="info-bar">
+            <span class="attr">Procedure to be performed</span></br>
+            <span class="value">{{active_patient.quote["procedure"]}}</span>
+          </div>
+        </div>
+        <div class="content-right">
+          <div class="info-bar">
+            <span class="attr"> Estimated Cost: </span></br>
+            <span class="value">{{active_patient.quote["cost"]}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="left-right-container">
+        <div class="info-bar">
+          <span class="attr">Remarks :</span></br>
+          <span class="value">{{active_patient.quote["remark"]}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,4 @@
+asset 'angular'
+asset 'angular-animate'
+asset 'angular-aria'
+asset 'angular-resource'
